@@ -1,0 +1,13 @@
+digraph {
+n0 [label="Goal:"];
+n1 [label="MainClass:MissingBrace"];
+n2 [label="MainMethod:"];
+n3 [label="StatementList:"];
+n4 [label="PrintStatement:"];
+n5 [label="Int:10"];
+n4 -> n5
+n3 -> n4
+n2 -> n3
+n1 -> n2
+n0 -> n1
+}

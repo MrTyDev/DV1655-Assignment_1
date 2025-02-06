@@ -17,6 +17,8 @@
   #define YY_DECL yy::parser::symbol_type yylex()
   YY_DECL;
   
+
+
   Node* root;
   extern int yylineno;
 }
@@ -50,6 +52,7 @@
 %type <Node *> parameter_list expression_list
 %type <Node *> var_declaration_list method_declaration_list
 
+
 /* Grammar rules section */
 /* This section defines the production rules for the language being parsed */
 %%
@@ -59,6 +62,9 @@ goal: main_class class_declaration_list {
     if($2) $$->children.push_back($2);
     root = $$;
 };
+
+root:
+        goal {root=$1;}
 
 expression: expression AND expression {
         $$ = new Node("AndExpression", "", yylineno);
